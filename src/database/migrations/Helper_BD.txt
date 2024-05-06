@@ -1,0 +1,10 @@
+CASCADE
+RESTRICT
+NO ACTION
+SET NULL
+
+ON DELETE CASCADE - pai deletado, filho deletado
+ON UPDATE CASCADE - primary key pai atualizado, filho atualizado
+RESTRICT - nao atualiza pai e lanca erro
+NO ACTION - se tiver arquivo no filho, pai nao pode ser deletado/atualizado
+SET NULL - apagar/atualizar pai, filho vira null

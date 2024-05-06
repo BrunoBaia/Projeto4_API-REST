@@ -1,0 +1,25 @@
+const { resolve } = require('path');
+
+module.exports = {
+    config: resolve(__dirname, 'src', 'config', 'database.js'),
+    'models-path': resolve(__dirname, 'src', 'models'),
+    'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'),
+    'seeders-path': resolve(__dirname, 'src', 'database', 'seeds'),
+}
+
+
+
+// IMPORTANTE: Não é recomendado alterar diretamente um arquivo de migration após executá-lo com o comando db:migrate, crie NOVAS migrations
+
+// Criando migrations ( olhar na pasta: database/migrations/alunos OU users )
+// npx sequelize migration:create --name=nome_aqui
+// npx sequelize db:migrate
+// npx sequelize db:migrate:undo
+
+// Criando seeds ( olhar na pasta: database/seeds )
+// npx sequelize seed:generate --name criar-usuario
+// npx sequelize db:seed:all
+
+// Modificando migrations ( olhar na pasta: database/migrations/mudar-email-aluno-unique )
+// npx sequelize migration:create --name=mudar-email-aluno-unique
+// npx sequelize db:migrate
