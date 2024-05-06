@@ -1,0 +1,6 @@
+* start ~/.ssh   //acesso a pasta da chave
+
+* eval $(ssh-agent)   //toda vez ao iniciar o git bash
+* ssh-add ~/.ssh/cursojs   //toda vez ao iniciar o git bash
+* ssh usuario@ipExternoStaticServidor   //iniciar servidor
+* ssh Bruno@34.95.151.145   //iniciar servidor
