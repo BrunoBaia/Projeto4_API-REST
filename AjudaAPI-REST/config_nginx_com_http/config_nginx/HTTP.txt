@@ -1,7 +1,7 @@
 server {
-  listen 80;
-  listen [::]:80;
-  server_name TROQUE_PARA_SEU_DOMINIO_OU_IP;
+  listen 81;
+  listen [::]:81;
+  server_name 34.95.151.145;
 
   location / {
     proxy_pass http://localhost:3001;
@@ -23,6 +23,6 @@ server {
   }
 
   access_log off;
-  #access_log  /var/log/nginx/TROQUE_PARA_SEU_DOMINIO_OU_IP-access.log;
-  error_log /var/log/nginx/TROQUE_PARA_SEU_DOMINIO_OU_IP-error.log;
+  #access_log  /var/log/nginx/34.95.151.145-access.log;
+  error_log /var/log/nginx/34.95.151.145-error-api.log;
 }
