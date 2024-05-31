@@ -22,7 +22,7 @@ const whiteList = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if(whiteList.indexOf(origin) !== -1 || !origin) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -31,28 +31,31 @@ const corsOptions = {
 };
 
 class App {
-    constructor() {
-        // ordem importa, middleware antes
-        this.app = _express2.default.call(void 0, );
-        this.middlewares();
-        this.routes();
-    }
+  constructor() {
+    // ordem importa, middleware antes
+    this.app = _express2.default.call(void 0, );
+    this.middlewares();
+    this.routes();
+  }
 
-    middlewares() {
-        this.app.use(_cors2.default.call(void 0, corsOptions));
-        this.app.use(_helmet2.default.call(void 0, ));
-        this.app.use(_express2.default.urlencoded({ extended: true }));
-        this.app.use(_express2.default.json());
-        this.app.use('/images/', _express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
-    }
+  middlewares() {
+    this.app.use('/images/', (req, res, next) => {
+      res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+      next();
+    }, _express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
+    this.app.use(_helmet2.default.call(void 0, ));
+    this.app.use(_express2.default.urlencoded({ extended: true }));
+    this.app.use(_express2.default.json());
+    this.app.use('/images/', _express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
+  }
 
-    routes() {
-        this.app.use('/', _homeRoutes2.default);
-        this.app.use('/users/', _userRoutes2.default);
-        this.app.use('/tokens/', _tokenRoutes2.default);
-        this.app.use('/alunos/', _alunoRoutes2.default);
-        this.app.use('/fotos/', _fotoRoutes2.default);
-      }
+  routes() {
+    this.app.use('/', _homeRoutes2.default);
+    this.app.use('/users/', _userRoutes2.default);
+    this.app.use('/tokens/', _tokenRoutes2.default);
+    this.app.use('/alunos/', _alunoRoutes2.default);
+    this.app.use('/fotos/', _fotoRoutes2.default);
+  }
 }
 
 exports. default = new App().app;

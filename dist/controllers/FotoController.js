@@ -2,7 +2,7 @@
 var _multer3 = require('../config/multer'); var _multer4 = _interopRequireDefault(_multer3);
 var _Foto = require('../models/Foto'); var _Foto2 = _interopRequireDefault(_Foto);
 
-const upload = _multer2.default.call(void 0, _multer4.default).single('foto');
+const upload = _multer2.default.call(void 0, _multer4.default).single('foto');   // "foto" = nome multipart do insomnia
 
 class FotoController {
   store(req, res) {

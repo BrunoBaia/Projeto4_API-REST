@@ -1,4 +1,6 @@
-"use strict";require('dotenv').config();
+"use strict";// lembrar de permitir conexao do firewall DO SERVER na porta desejada(3306)
+
+require('dotenv').config();
 
 module.exports = {
     /* SQLite */
