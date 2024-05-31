@@ -39,14 +39,14 @@ class App {
   }
 
   middlewares() {
+    this.app.use(cors(corsOptions));
+    this.app.use(helmet());
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(express.json());
     this.app.use('/images/', (req, res, next) => {
       res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
       next();
     }, express.static(resolve(__dirname, '..', 'uploads', 'images')));
-    this.app.use(helmet());
-    this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(express.json());
-    this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
   }
 
   routes() {
