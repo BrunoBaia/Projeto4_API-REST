@@ -2,7 +2,7 @@ import multer from 'multer';
 import multerConfig from '../config/multer';
 import Foto from '../models/Foto';
 
-const upload = multer(multerConfig).single('foto');
+const upload = multer(multerConfig).single('foto');   // "foto" = nome multipart do insomnia
 
 class FotoController {
   store(req, res) {
